@@ -1,0 +1,6 @@
+2024-12-19 17:27:01 - Menghubungkan ke database...
+2024-12-19 17:27:01 - Eksekusi query untuk mitra_id: 79
+2024-12-19 17:27:01 - Jumlah workshop ditemukan: 0
+2024-12-19 17:27:15 - Menghubungkan ke database...
+2024-12-19 17:27:15 - Eksekusi query untuk mitra_id: 79
+2024-12-19 17:27:15 - Jumlah workshop ditemukan: 0
