@@ -695,7 +695,10 @@ function getWorkshopsWithMitra() {
     $result = mysqli_query($conn, $query);
 
     if ($result) {
-        $workshops = mysqli_fetch_all($result, MYSQLI_ASSOC);
+        $workshops = [];
+        while ($row = mysqli_fetch_assoc($result)) {
+            $workshops[] = $row;
+        }
         return $workshops;
     } else {
         return "Error fetching workshops: " . mysqli_error($conn);
