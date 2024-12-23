@@ -1,8 +1,8 @@
 <?php
 $host = 'localhost';        
-$username = 'root';         
-$password = '';            
-$dbname = 'worksmart1'; 
+$username = 'worksmar_admin';         
+$password = 'UIZaCzx_;2@b';            
+$dbname = 'worksmar_worksmartful_db'; 
 
 $conn = new mysqli($host, $username, $password, $dbname);
 
