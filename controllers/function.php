@@ -58,15 +58,19 @@ function createUser($first_name, $last_name, $username, $password, $email, $role
     $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
     
     // Direct query without prepare
-    $sql = "INSERT INTO users (first_name, last_name, username, password, email, role, phone) 
-            VALUES ('$first_name', '$last_name', '$username', '$hashedPassword', '$email', '$role', '$phone')";
-            
-    if ($conn->query($sql)) {
-        return "success";
-    } else {
-        return "Gagal menambahkan pengguna: " . $conn->error;
-    }
+// Nilai default untuk profile_photo jika tidak disediakan
+$profile_photo = 'default.jpg';
+
+$sql = "INSERT INTO users (first_name, last_name, username, password, email, role, phone, profile_photo) 
+        VALUES ('$first_name', '$last_name', '$username', '$hashedPassword', '$email', '$role', '$phone', '$profile_photo')";
+
+if ($conn->query($sql)) {
+    return "success";
+} else {
+    return "Gagal menambahkan pengguna: " . $conn->error;
 }
+}
+
 
 // Fungsi Read - Mendapatkan semua pengguna
 function getUsers() {

@@ -246,10 +246,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['createUser'])) {
     $username = strtolower($first_name . $last_name); // Convert to lowercase
     $password = mysqli_real_escape_string($conn, $_POST['password']);
     $email = mysqli_real_escape_string($conn, $_POST['email']);
-    if($_SESSION['role']!='admin'){
-        $role = mysqli_real_escape_string($conn, $_POST['role']);
-    }else{
-        $role = 'user';
+    if ($_SESSION['role'] != 'admin') {
+        // Pastikan $_POST['role'] ada sebelum mencoba mengaksesnya
+        if (isset($_POST['role'])) {
+            $role = mysqli_real_escape_string($conn, $_POST['role']);
+        } else {
+            $role = 'user'; // Nilai default jika $_POST['role'] tidak ada
+        }
+    } else {
+        $role = 'user'; // Nilai $role untuk admin selalu 'user'
     }
     $phone = mysqli_real_escape_string($conn, $_POST['phone']);
 
